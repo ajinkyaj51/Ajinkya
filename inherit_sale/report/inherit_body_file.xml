@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+        <template id="report_saleorder_document_inherit" inherit_id="sale.report_saleorder_document">
+            <xpath expr="//div[@class='page']/div[@class='row mt32 mb32']/div" position="replace">
+                <div t-if="doc.client_order_ref and doc.po_date" class="col-xs-3">
+                    <strong>Customer Reference And Date:</strong>
+                    <span t-field="doc.client_order_ref" style="font-weight: arial;"/>
+&#160;&#160;<span t-field="doc.po_date" t-field-options="{&quot;format&quot;: &quot;yyyy-MM-dd&quot;}"/>
+
+            </div>
+
+        </xpath>
+
+        <xpath expr="//table[@class='table table-condensed']/thead/tr/th" position="before">
+            <th class="text-right">Serial No</th>
+            <th class="text-right">Category</th>
+            <!-- <t t-set="product_category" t-value="[]"/>
+            <t t-foreach="o.order_line" t-as="l">
+                <t t-set="product_category" t-value="product_category+[l.product_id.categ_id]"/>
+            </t>
+            <t t-foreach="set(product_category)" t-as="category">
+                <div>
+                    <strong t-esc="category.name"/>
+                </div>
+                <t t-foreach="o.order_line" t-as="l">
+                    <t t-if="category.id==l.product_id.categ_id.id">
+                        <div>
+                            <span t-field="l.product_id"/>
+                        </div>
+                    </t>
+                </t>        <span t-esc="line_index + 1" />
+                </t> -->
+
+            <!-- <t t-foreach="o.lines" t-as="p">
+                        <span t-esc="p_index">
+                        </t>-->
+            <!-- <xpath expr="//div[@class='page']/div[@class='row mt32 mb32']" position="inside"> -->
+            <!-- <div t-if="doc.po_date" class="col-xs-3">
+                    <strong>Date:</strong>
+                    <p t-field="doc.po_date"/>
+                </div> -->
+        </xpath>
+        <xpath expr="//t-field[@name='l.name']" position="before">
+            <span t-esc="line_index + 1" />
+            <!-- <xpath expr="//tbody[@class='sale_tbody']" position="inside">
+            <t t-set="product_category" t-value="[]"/>
+            <t t-foreach="o.order_line" t-as="l">
+                <t t-set="product_category" t-value="product_category+[l.product_id.categ_id]"/>
+            </t>
+            <t t-foreach="set(product_category)" t-as="category">
+                <div>
+                    <strong t-esc="category.name"/>
+                </div>
+                <t t-foreach="o.order_line" t-as="l">
+                    <t t-if="category.id==l.product_id.categ_id.id">
+                        <div>
+                            <span t-field="l.product_id"/>
+                        </div>
+                    </t>
+                </t>
+                </t>
+                  <span t-esc="l_index + 1" />-->
+            </xpath>   
+        </template>
+    </data>
+
+</odoo> 
